@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 enum Section: Int {
     case parents = 0
@@ -41,20 +42,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var dataSource: UITableViewDiffableDataSource<Section,Item>!
-    
-    var items: [Item] = [
-        Item.parent(Parent(name: "Father")),
-        Item.child(Child(nickname: "Fun Son", age: 16))
-    ]
-    var subitems: [Item] = [
-        Item.parent(Parent(name: "Test")),
-        Item.child(Child(nickname: "Tester", age: 21))
-    ]
-    
+    var viewModel: ViewModel = .init()
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSource()
-        applySnapshot(with: items)
+        viewModel.$items
+            .perform(task: applySnapshot)
     }
 
     func configureDataSource() {
@@ -73,33 +68,11 @@ class ViewController: UIViewController {
     }
     
     func applySnapshot(with items: [Item]) {
-        let parents = items.filter { (item) -> Bool in
-            switch item {
-            case .parent: return true
-            case .child: return false
-            }
-        }
-        let children = items.filter { (item) -> Bool in
-            switch item {
-            case .parent: return false
-            case .child: return true
-            }
-        }
+        print("Applying Snapshot with items:")
+        print(items)
         var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
-        snapshot.appendSections([.parents, .children])
+        snapshot.appendSections([.parents])
         snapshot.appendItems(items, toSection: .parents)
-        snapshot.appendItems(subitems, toSection: .children)
         dataSource.apply(snapshot)
-    }
-    
-    
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let label = UILabel()
-        label.text = Section(rawValue: section)?.title()
-        return label
-    }
+    }    
 }
