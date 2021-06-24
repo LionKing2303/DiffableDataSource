@@ -14,19 +14,18 @@ extension Publisher where Failure == Never {
     }
 }
 
-class CustomSubscriber<T>: Subscriber {
-    typealias Input = T
+class CustomSubscriber<Input>: Subscriber {
     typealias Failure = Never
     
-    var closure: ((T)->Void)
-    init(with action: @escaping ((T)->Void)) {
+    var closure: ((Input)->Void)
+    init(with action: @escaping ((Input)->Void)) {
         self.closure = action
     }
     
     func receive(subscription: Subscription) {
         subscription.request(.unlimited)
     }
-    func receive(_ input: T) -> Subscribers.Demand {
+    func receive(_ input: Input) -> Subscribers.Demand {
         closure(input)
         return .none
     }
