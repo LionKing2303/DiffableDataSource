@@ -19,6 +19,13 @@ extension ViewController {
                     .child(Child(nickname: "Little Bird", age: 18))
                     ]
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [weak self] in
+                self?.items = [
+                    .child(Child(nickname: "Bird", age: 22)),
+                    .parent(Parent(name: "Father"))
+                    ]
+            }
         }
     }
 }
