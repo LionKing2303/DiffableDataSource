@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0F2912268776AC00BB574F /* DiffableDataSourceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0F2911268776AC00BB574F /* DiffableDataSourceAppTests.swift */; };
 		AC131A6C2680D7F000965CC1 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC131A6B2680D7F000965CC1 /* ViewModel.swift */; };
 		AC131A6F2680D94F00965CC1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC131A6E2680D94F00965CC1 /* ContentView.swift */; };
 		AC131A932680E2B800965CC1 /* CustomSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC131A922680E2B800965CC1 /* CustomSubscriber.swift */; };
@@ -18,7 +19,20 @@
 		AC4FC763267F908D00E40C14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4FC761267F908D00E40C14 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AC0F2914268776AC00BB574F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC4FC74B267F908800E40C14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC4FC752267F908800E40C14;
+			remoteInfo = DiffableDataSourceApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		AC0F290F268776AC00BB574F /* DiffableDataSourceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiffableDataSourceAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0F2911268776AC00BB574F /* DiffableDataSourceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceAppTests.swift; sourceTree = "<group>"; };
+		AC0F2913268776AC00BB574F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC131A6B2680D7F000965CC1 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		AC131A6E2680D94F00965CC1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC131A922680E2B800965CC1 /* CustomSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubscriber.swift; sourceTree = "<group>"; };
@@ -33,6 +47,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AC0F290C268776AC00BB574F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC4FC750267F908800E40C14 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,10 +64,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC0F2910268776AC00BB574F /* DiffableDataSourceAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC0F2911268776AC00BB574F /* DiffableDataSourceAppTests.swift */,
+				AC0F2913268776AC00BB574F /* Info.plist */,
+			);
+			path = DiffableDataSourceAppTests;
+			sourceTree = "<group>";
+		};
 		AC4FC74A267F908800E40C14 = {
 			isa = PBXGroup;
 			children = (
 				AC4FC755267F908800E40C14 /* DiffableDataSourceApp */,
+				AC0F2910268776AC00BB574F /* DiffableDataSourceAppTests */,
 				AC4FC754267F908800E40C14 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				AC4FC753267F908800E40C14 /* DiffableDataSourceApp.app */,
+				AC0F290F268776AC00BB574F /* DiffableDataSourceAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -79,6 +111,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AC0F290E268776AC00BB574F /* DiffableDataSourceAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC0F2918268776AC00BB574F /* Build configuration list for PBXNativeTarget "DiffableDataSourceAppTests" */;
+			buildPhases = (
+				AC0F290B268776AC00BB574F /* Sources */,
+				AC0F290C268776AC00BB574F /* Frameworks */,
+				AC0F290D268776AC00BB574F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC0F2915268776AC00BB574F /* PBXTargetDependency */,
+			);
+			name = DiffableDataSourceAppTests;
+			productName = DiffableDataSourceAppTests;
+			productReference = AC0F290F268776AC00BB574F /* DiffableDataSourceAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AC4FC752267F908800E40C14 /* DiffableDataSourceApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC4FC767267F908D00E40C14 /* Build configuration list for PBXNativeTarget "DiffableDataSourceApp" */;
@@ -105,6 +155,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					AC0F290E268776AC00BB574F = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = AC4FC752267F908800E40C14;
+					};
 					AC4FC752267F908800E40C14 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -124,11 +178,19 @@
 			projectRoot = "";
 			targets = (
 				AC4FC752267F908800E40C14 /* DiffableDataSourceApp */,
+				AC0F290E268776AC00BB574F /* DiffableDataSourceAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AC0F290D268776AC00BB574F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC4FC751267F908800E40C14 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +204,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AC0F290B268776AC00BB574F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC0F2912268776AC00BB574F /* DiffableDataSourceAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC4FC74F267F908800E40C14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +226,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC0F2915268776AC00BB574F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC4FC752267F908800E40C14 /* DiffableDataSourceApp */;
+			targetProxy = AC0F2914268776AC00BB574F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AC4FC75C267F908800E40C14 /* Main.storyboard */ = {
@@ -177,6 +255,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AC0F2916268776AC00BB574F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KJSUL68A86;
+				INFOPLIST_FILE = DiffableDataSourceAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arieperetz.DiffableDataSourceAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiffableDataSourceApp.app/DiffableDataSourceApp";
+			};
+			name = Debug;
+		};
+		AC0F2917268776AC00BB574F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KJSUL68A86;
+				INFOPLIST_FILE = DiffableDataSourceAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arieperetz.DiffableDataSourceAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DiffableDataSourceApp.app/DiffableDataSourceApp";
+			};
+			name = Release;
+		};
 		AC4FC765267F908D00E40C14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -338,6 +456,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC0F2918268776AC00BB574F /* Build configuration list for PBXNativeTarget "DiffableDataSourceAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC0F2916268776AC00BB574F /* Debug */,
+				AC0F2917268776AC00BB574F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AC4FC74E267F908800E40C14 /* Build configuration list for PBXProject "DiffableDataSourceApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

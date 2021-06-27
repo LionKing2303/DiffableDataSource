@@ -37,6 +37,10 @@ enum Item: Hashable {
     case child(Child)
 }
 
+struct MyResponse: Codable {
+    let info: String?
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -48,8 +52,32 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSource()
+//        let x = ApplySnapshotSubscriber(to: Section.parents, on: dataSource)
+        
         viewModel.$items
-            .perform(task: applySnapshot)
+            .apply(to: Section.parents, on: dataSource)
+            .store(in: &cancellables)
+//            .execute(with: applySnapshot)
+//            .store(in: &cancellables)
+//            .store(in: &cancellables)
+//        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+//
+//        var request: URLRequest = URLRequest(url: URL(string: "http://localhost:3000/redirect-put")!)
+//        request.httpMethod = "PUT"
+//        session.dataTaskPublisher(for: request)
+//            .print()
+//            .map(\.data)
+//            .replaceError(with: Data())
+//            .decode(type: MyResponse.self, decoder: JSONDecoder())
+//            .replaceError(with: MyResponse.init(info: nil))
+//            .sink(receiveValue: { (response) in
+//                print(response)
+//            })
+//            .store(in: &cancellables)
+//            .execute { (data) in
+//                print(data)
+//            }
+//            .store(in: &cancellables)
     }
 
     func configureDataSource() {
@@ -68,11 +96,24 @@ class ViewController: UIViewController {
     }
     
     func applySnapshot(with items: [Item]) {
-        print("Applying Snapshot with items:")
-        print(items)
         var snapshot = NSDiffableDataSourceSnapshot<Section,Item>()
         snapshot.appendSections([.parents])
         snapshot.appendItems(items, toSection: .parents)
         dataSource.apply(snapshot)
     }    
+}
+
+extension ViewController: URLSessionTaskDelegate {
+    func urlSession(_ session: URLSession, task: URLSessionTask, willPerformHTTPRedirection response: HTTPURLResponse, newRequest request: URLRequest, completionHandler: @escaping (URLRequest?) -> Void) {
+        print("REDIRECT")
+        print("RESPONSE:")
+        print(response.debugDescription)
+        print("NEW REQUEST:")
+        print(request.debugDescription)
+//        print(request.httpMethod)
+        var newRequest = URLRequest(url: request.url!)
+        newRequest.httpMethod = "GET"
+        completionHandler(newRequest)
+        
+    }
 }
